@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Budget</string>
+    <string name="title_activity_tabbed">Tabbed</string>
+    <string name="tab_text_1">Fun</string>
+    <string name="tab_text_2">Living Expenses</string>
+    <string name="tab_text_3">Flex Costs</string>
+
+    <string name="tab_text_4">Fixed Bills</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+</resources>
