@@ -12,6 +12,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
+        <activity android:name=".AddCost">
+
+        </activity>
         <activity
             android:name=".Tabbed"
             android:label="@string/title_activity_tabbed"

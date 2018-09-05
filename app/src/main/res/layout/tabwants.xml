@@ -17,7 +17,7 @@
         <View
             android:id="@+id/myRectangleView2"
             android:layout_width="match_parent"
-            android:layout_height="4dp"
+            android:layout_height="10dp"
             android:layout_marginTop="16dp"
             android:background="@color/grey_light"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
@@ -210,7 +210,7 @@
         android:animateLayoutChanges="true"
 
     android:alpha="0.3"
-    android:paddingTop="76dp"
+    android:paddingTop="50dp"
         app:behavior_hideable="false"
         app:behavior_peekHeight="125dp"
         app:layout_behavior="@string/bottom_sheet_behavior">

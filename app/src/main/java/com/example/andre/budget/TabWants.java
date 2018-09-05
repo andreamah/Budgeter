@@ -86,7 +86,7 @@ public class TabWants extends Fragment {
 
                         });
 
-                        ValueAnimator va = ValueAnimator.ofInt(rectangleBar.getMeasuredHeight(), 60);
+                        ValueAnimator va = ValueAnimator.ofInt(rectangleBar.getMeasuredHeight(), rectangleBar.getMeasuredHeight() + 90);
                         va.setDuration(400);
                         va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                             public void onAnimationUpdate(ValueAnimator animation) {
