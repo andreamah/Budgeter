@@ -25,13 +25,21 @@ import android.widget.TextView;
 
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class TabBills extends Fragment {
     private BottomSheetBehavior mBottomSheetBehavior;
     private TextView mTextViewState;
     View bottomSheet;
     View rectangleBar;
     CircularProgressBar circularProgressBar;
+    //a list to store all the products
+    List<CostEntry> productList;
 
+    //the recyclerview
+    RecyclerView recyclerView;
     private GestureDetector mDetector;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,21 +54,63 @@ public class TabBills extends Fragment {
         mBottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
 
         mDetector = new GestureDetector(getContext(), new TabBills.MyGestureListener());
-//        RecyclerView mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
-////
-//        // use this setting to improve performance if you know that changes
-//        // in content do not change the layout size of the RecyclerView
-//        mRecyclerView.setHasFixedSize(true);
-//
-//        // use a linear layout manager
-//        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//
-//        // specify an adapter (see also next example)
-//        MyAdapter mAdapter = new MyAdapter(myDataset);
-//        mRecyclerView.setAdapter(mAdapter);
-//
-//        //
+
+        //getting the recyclerview from xml
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+
+        //initializing the productlist
+        productList = new ArrayList<>();
+
+
+        //adding some items to our list
+        productList.add(
+                new CostEntry(
+                        new Date(1000),
+                        2,
+                        "Groceries",
+                        "Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"));
+
+        productList.add(
+                new CostEntry(
+                        new Date(1000),
+                        2,
+                        "Food",
+                        "Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"));
+
+        productList.add(
+                new CostEntry(
+                        new Date(1000),
+                        2,
+                        "Phone Case",
+                        "Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"));
+        productList.add(
+                new CostEntry(
+                        new Date(1000),
+                        2,
+                        "13.3 inch, Silver, 1.35 kg",
+                        "Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"));
+
+        productList.add(
+                new CostEntry(
+                        new Date(1000),
+                        2,
+                        "13.3 inch, Silver, 1.35 kg",
+                        "Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"));
+
+        productList.add(
+                new CostEntry(
+                        new Date(1000),
+                        2,
+                        "13.3 inch, Silver, 1.35 kg",
+                        "Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"));
+
+        //creating recyclerview adapter
+        CostEntryAdapter adapter = new CostEntryAdapter(container.getContext(), productList);
+
+        //setting adapter to recyclerview
+        recyclerView.setAdapter(adapter);
         rootView.setOnTouchListener(touchListener);
         circularProgressBar = (CircularProgressBar)rootView.findViewById(R.id.flexBar);
         int animationDuration = 2500; // 2500ms = 2,5s
